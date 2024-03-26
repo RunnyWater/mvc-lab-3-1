@@ -49,14 +49,10 @@ app.get('/students', (req, res) => {
       fetch(\`/students/\${studentId}\`, {
         method: 'DELETE',
       })
-      .then(response => response.text())
       .then(data => {
         console.log(data);
         document.getElementById(\`student-\${studentId}\`).remove();
       })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
     }
     </script>
  `);
@@ -65,10 +61,5 @@ app.get('/students', (req, res) => {
   
 app.use(express.static('public'));
 
-app.delete('/students/:id', (req, res) => {
-  const id = req.params.id;
-  students = students.filter(student => student.id !== parseInt(id));
-  res.send(`Student with id ${id} has been deleted.`);
- });
 
   
