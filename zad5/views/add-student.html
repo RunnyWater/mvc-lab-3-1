@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="css/main.css">
+        <title>ADD STUDENT</title>
+      </head>
+      <body>
+        <p>ADD STUDENT</p>
+        <nav>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/student" >Student</a></li>
+            </ul>
+        </nav>
+        <form action="/add-student" method="post">
+          <label for="name">Name:</label><br>
+          <input type="text" id="name" name="name"><br>
+          <label for="surname">Surname:</label><br>
+          <input type="text" id="surname" name="surname"><br>
+          <label for="kierunek">Kierunek:</label><br>
+          <input type="text" id="kierunek" name="kierunek"><br>
+          <label for="id">ID:</label><br>
+          <input type="number" id="id" name="id"><br>
+          <input type="submit" value="Submit">
+        </form>
+      </body>
+</html>
