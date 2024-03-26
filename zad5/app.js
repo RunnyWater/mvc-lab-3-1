@@ -41,9 +41,27 @@ let students = [];
 
 
 app.get('/students', (req, res) => {
-    let studentsList = students.map(student => `<p>${student.name} ${student.surname} - ${student.kierunek} - ${student.id}</p>`).join('');
-    res.send(`<ul>${studentsList}</ul>`);
-});
+  let studentsList = students.map(student => `<p id="student-${student.id}">${student.name} ${student.surname} - ${student.kierunek} - ${student.id} <button onclick="deleteStudent(${student.id})">Delete</button></p>`).join('');
+ res.send(`
+    <ul id="studentsList">${studentsList}</ul>
+    <script>
+    function deleteStudent(studentId) {
+      fetch(\`/students/\${studentId}\`, {
+        method: 'DELETE',
+      })
+      .then(response => response.text())
+      .then(data => {
+        console.log(data);
+        document.getElementById(\`student-\${studentId}\`).remove();
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    }
+    </script>
+ `);
+ });
+ 
   
 app.use(express.static('public'));
 
