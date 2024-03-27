@@ -32,6 +32,7 @@ app.listen(3000, () => {
 app.post('/add-student', (req, res) => {
     const { name, surname, kierunek, id } = req.body;
     students.push({ name, surname, kierunek, id });
+    // 
     res.send(`Hello, ${name} ${surname} on ${kierunek} studies!`);
   });
 
